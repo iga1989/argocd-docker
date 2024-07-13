@@ -28,8 +28,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            devopswithiga/argodemo:latest
-            devopswithiga/argodemo:${{ github.run_number }}
+            danieliga/argodemo:latest
+            danieliga/argodemo:${{ github.run_number }}
       - name: Clone Repository B
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
@@ -41,7 +41,7 @@ jobs:
       - name: Access cloned repository content
         run: |
           cd argocd-k8s-deploy
-          sed -i "s/devopswithiga\/argodemo:[0-9]*\|devopswithiga\/argodemo:latest/devopswithiga\/argodemo:${{ github.run_number }}/" deployment.yml
+          sed -i "s/danieliga\/argodemo:[0-9]*\|danieliga\/argodemo:latest/danieliga\/argodemo:${{ github.run_number }}/" deployment.yml
           git config --global user.email "issetimba@gmail.com"
           git config --global user.name "iga1989"
           git add deployment.yml
